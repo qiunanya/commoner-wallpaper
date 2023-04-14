@@ -24,3 +24,4 @@ npm install -g asar
 asar extract ./app.asar ./file
 ```
 
+git config --global http.sslVerify "false"
