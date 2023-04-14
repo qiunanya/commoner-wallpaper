@@ -1,2 +1,16 @@
-# commoner-wallpaper6666	
-window commoner front-end wallpaper tool
+# 布衣前端壁纸发✨	
+做一个好看而又随心切换桌面壁纸工具，市面上的壁纸大多太臃肿，不够个性化，而且好多功能需要收费，这是建立初衷。
+
+
+
+## 技术栈 
+
+| 名称                                                         | 版本 | 备注                                                         |
+| ------------------------------------------------------------ | ---- | ------------------------------------------------------------ |
+| vue3                                                         |      |                                                              |
+| electron24                                                   |      |                                                              |
+| [electron-as-wallpaper](https://github.com/meslzy/electron-as-wallpaper) |      | 核心插件【支持图片壁纸，视频壁纸，动态壁纸，网页壁纸】，将窗口至于window图标之下，背景图片之上的插件。 |
+| nodejs                                                       |      |                                                              |
+| JavaScript                                                   |      |                                                              |
+| Css                                                          |      |                                                              |
+| HTMl                                                         |      |                                                              |
