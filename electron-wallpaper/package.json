@@ -17,6 +17,9 @@
 	],
 	"author": "Commoner",
 	"license": "CC0-1.0",
+	"dependencies": {
+		"electron-as-wallpaper": "^0.0.2-dev"
+	},
 	"devDependencies": {
 		"electron": "^24.1.1",
 		"electron-builder": "^23.6.0"
@@ -69,8 +72,5 @@
 			"from": "./extraResources/",
 			"to": "extraResources"
 		}
-	},
-	"dependencies": {
-		"electron-as-wallpaper": "^0.0.2-dev"
 	}
 }
