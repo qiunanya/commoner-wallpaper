@@ -1,0 +1,65 @@
+{
+	"name": "electron-wallpaper",
+	"version": "1.0.0",
+	"description": "A good-looking desktop wallpaper that can be switched at will",
+	"main": "./main.js",
+	"scripts": {
+		"dev": "electron .",
+		"electron:build": "electron-builder"
+	},
+	"repository": "https://github.com/electron/electron-quick-start",
+	"keywords": [
+		"Electron",
+		"quick",
+		"start",
+		"tutorial",
+		"demo"
+	],
+	"author": "Commoner",
+	"license": "CC0-1.0",
+	"devDependencies": {
+		"electron": "^24.1.1",
+		"electron-builder": "^23.6.0"
+	},
+	"build": {
+		"appId": "com.wallpaper.app",
+		"productName": "CommonerWallpaper",
+		"copyright": "Copyright © 2023 Qiu",
+		"mac": {
+		  "category": "public.app-category.utilities"
+		},
+		"win": {
+		  "target": [
+			{
+			  "target": "nsis",
+			  "arch": [
+				"x64"
+			  ]
+			}
+		  ],
+		  "icon": "./public/icon.ico",
+		  "publish": [
+			{
+			  "provider": "generic",
+			  "url": "http://39.106.29.92:8789/"
+			}
+		  ]
+		},
+		"nsis": {
+		  "oneClick": false,
+		  "allowToChangeInstallationDirectory": true
+		},
+		"directories": {
+		  "output": "dist/${version}"
+		},
+		"files": [
+      		"dist/electron/**/*",
+			"main.js"
+    	],
+		"extends": null,
+		"extraResources": {
+		  "from": "./extraResources/",
+		  "to": "extraResources"
+		}
+	}
+}
