@@ -1,10 +1,12 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow } = require('electron');
 const {attach, detach, refresh} = require("electron-as-wallpaper");
+const CustomWindow = require('../scripts/cust-window.js');
 
 const path = require('path')
 let mainWindow;
 function createWindow() {
+    process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
     // Create the browser window.
     mainWindow = new BrowserWindow({
         width: 800,
@@ -16,6 +18,8 @@ function createWindow() {
             'logo/icon.ico'
         ),
         webPreferences: {
+            enableRemoteModule: true,
+            webSecurity: false, 
             nodeIntegration: true,
             contextIsolation: false,
             webviewTag: true,
@@ -23,7 +27,7 @@ function createWindow() {
         }
     })
 
-    // 开发环�?
+    // development
     if (!app.isPackaged) {
         mainWindow.loadURL(path.resolve(
             __dirname,
@@ -32,11 +36,11 @@ function createWindow() {
             'index.html'
         ))
         // mainWindow.webContents.openDevTools()
-        console.log('开发环�?', app.isPackaged);
+        console.log('development', app.isPackaged);
     }
-    // 生产�??
+    // production
     else {
-        console.log('生产�??', app.isPackaged);
+        console.log('production', app.isPackaged);
         mainWindow.loadFile(
             path.resolve(
                 __dirname,
@@ -54,8 +58,9 @@ app.whenReady().then(() => {
     app.on('activate', function () {
         if (BrowserWindow.getAllWindows().length === 0) createWindow()
     })
-    if (mainWindow) attach(mainWindow);
-    // detach(mainWindow);
+    // if (mainWindow) attach(mainWindow);
+    // not wallpaper effect
+    if (mainWindow) detach(mainWindow);
 })
 
 app.on('window-all-closed', function () {
