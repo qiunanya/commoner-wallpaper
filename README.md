@@ -3,6 +3,8 @@
 
 
 
+[TOC]
+
 ## 技术栈 
 
 | 名称                                                         | 版本    | 备注                                                         |
@@ -11,3 +13,14 @@
 | electron                                                     | 24.1.1  | 主框架                                                       |
 | [electron-as-wallpaper](https://github.com/meslzy/electron-as-wallpaper) |         | 核心插件【支持图片壁纸，视频壁纸，动态壁纸，网页壁纸】，将窗口至于window图标之下，背景图片之上的插件。 |
 | nodejs                                                       | 18.14.0 |                                                              |
+
+## asar解压步骤
+
+```bash
+npm install -g asar
+/**
+	cd到app.asar所在的目录,将文件解压到file文件夹
+**/
+asar extract ./app.asar ./file
+```
+
