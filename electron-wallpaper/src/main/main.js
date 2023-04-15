@@ -1,34 +1,28 @@
+"use strict"
 // Modules to control application life and create native browser window
 const { app, BrowserWindow } = require('electron');
 const {attach, detach, refresh} = require("electron-as-wallpaper");
 const CustomWindow = require('../scripts/cust-window.js');
-
 const path = require('path')
+
 let mainWindow;
+// hot reloader config
+try {
+    require('electron-reloader')(module);
+} catch (_) { }
+
 function createWindow() {
     process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
-    // Create the browser window.
-    mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
-        icon: path.resolve(
-            __dirname,
-            '../',
-            'asset',
-            'logo/icon.ico'
-        ),
-        webPreferences: {
-            enableRemoteModule: true,
-            webSecurity: false, 
-            nodeIntegration: true,
-            contextIsolation: false,
-            webviewTag: true,
-            preload: path.join(__dirname, 'preload.js')
-        }
-    })
 
+    // main windows
+    mainWindow = CustomWindow.createWindow()
+    // remote module
+    require('@electron/remote/main').initialize()
+    require('@electron/remote/main').enable(mainWindow.webContents)
+
+    const IS_DEVELOPMENT = !app.isPackaged;
     // development
-    if (!app.isPackaged) {
+    if (IS_DEVELOPMENT) {
         mainWindow.loadURL(path.resolve(
             __dirname,
             '../',

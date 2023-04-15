@@ -1,6 +1,6 @@
 {
 	"name": "electron-wallpaper",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "A good-looking desktop wallpaper that can be switched at will",
 	"main": "./src/main/main.js",
 	"scripts": {
@@ -18,11 +18,13 @@
 	"author": "Commoner",
 	"license": "CC0-1.0",
 	"dependencies": {
+		"@electron/remote": "^2.0.9",
 		"electron-as-wallpaper": "^0.0.2-dev"
 	},
 	"devDependencies": {
 		"electron": "^24.1.1",
-		"electron-builder": "^23.6.0"
+		"electron-builder": "^23.6.0",
+		"electron-reloader": "^1.2.3"
 	},
 	"build": {
 		"appId": "com.wallpaper.app",
@@ -40,7 +42,7 @@
 					]
 				}
 			],
-			"icon": "./public/icon.ico",
+			"icon": "./public/logo.ico",
 			"publish": [
 				{
 					"provider": "generic",
@@ -53,7 +55,7 @@
 			"perMachine": true,
 			"allowElevation": true,
 			"allowToChangeInstallationDirectory": true,
-			"installerIcon": "./public/icon.ico",
+			"installerIcon": "./public/logo.ico",
 			"uninstallerIcon": "./public/icon.ico",
 			"installerHeaderIcon": "./public/icon.ico",
 			"createDesktopShortcut": true,
@@ -65,7 +67,8 @@
 		},
 		"files": [
 			"dist/electron/**/*",
-			"./src/**/*"
+			"./src/**/*",
+			"./public/**/*"
 		],
 		"extends": null,
 		"extraResources": {
