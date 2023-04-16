@@ -1,9 +1,10 @@
 "use strict"
 // Modules to control application life and create native browser window
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const {attach, detach, refresh} = require("electron-as-wallpaper");
 const CustomWindow = require('../scripts/cust-window.js');
 const path = require('path')
+require('./event/handle.js')
 
 let mainWindow;
 // hot reloader config

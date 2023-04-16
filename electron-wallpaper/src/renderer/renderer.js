@@ -5,9 +5,9 @@
  * `contextIsolation` is turned on. Use the contextBridge API in `preload.js`
  * to expose Node.js functionality from the main process.
  */
+require('./event')
 const { dialog } = require("@electron/remote");
 
-const CustomWindow = require('../scripts/cust-window.js');
 // dialog.showSaveDialog({
 //     title: '文件保存到',
 //     buttonLabel:'确定',
@@ -21,4 +21,4 @@ const CustomWindow = require('../scripts/cust-window.js');
 // }).catch(err =>{
 //     this.$Message.error(err)
 // })
-console.log(CustomWindow.createWindow());
+
