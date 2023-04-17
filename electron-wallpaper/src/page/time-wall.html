@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间墙纸</title>
+    <style lang="css">
+        html {
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+        body {
+            background: #1b1c26;
+            display:flex; 
+            height:100vh; 
+            margin:0; 
+            padding:0; 
+            justify-content:center; 
+            align-items:center;
+            color: #fff;
+            position: relative;
+        }
+        #clocktext {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradientText 30s linear infinite;
+            background-origin: 0 0;
+        }
+        @keyframes gradientText {
+            0% {
+                /*从左向右*/
+                background-position-x: 200%;
+            }
+            50% {
+                background-position-y: 200%;
+            }
+            100% {
+                background-position-x: 0%;
+            }
+            
+            /* 50% {
+                background-position: -200% 100%;
+            }
+            100% {
+                background-position: 0% -200%;
+            } */
+        }
+        .author {
+            text-decoration: underline;
+            position: absolute;
+            top: 70%;
+        }
+    </style>
+</head>
+<body>
+    <span id="clocktext"></span>
+    <p class="author">制作者：NanYaQiu </p>
+    <script>
+        "use strict"
+        const textElem = document.getElementById('clocktext')
+        const targetWidth = 0.9; // 全屏宽度比例
+        let curFontSize = 20; // 当前字体大小
+        function updateClock () {
+            const date = new Date()
+            let s = '';
+            s += (10 > date.getHours() ? "0" : '') + date.getHours() + ":";
+            s += (10 > date.getMinutes() ? "0" : '') + date.getMinutes() + ":";
+            s += (10 > date.getSeconds() ? "0" : "") + date.getSeconds()
+            textElem.textContent = s;
+            setTimeout(updateClock, 1000 - date.getTime() % 1000 + 20)
+        } 
+
+        function updateTextSize() {
+            for (let i = 0; 3 > i; i++) {  // Iterate for better better convergence
+                curFontSize *= targetWidth / (textElem.offsetWidth / textElem.parentNode.offsetWidth);
+                textElem.style.fontSize = curFontSize + "pt";
+            }
+        }
+        updateClock();
+		updateTextSize();
+		window.addEventListener("resize", updateTextSize);
+    </script>
+</body>
+</html>

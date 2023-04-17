@@ -60,6 +60,7 @@
 			"installerHeaderIcon": "./public/icon.ico",
 			"createDesktopShortcut": true,
 			"createStartMenuShortcut": true,
+			"displayLanguageSelector": true,
 			"shortcutName": "commoner"
 		},
 		"directories": {

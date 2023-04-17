@@ -1,23 +1,31 @@
 const { ipcMain, BrowserWindow } = require("electron")
+const {attach, detach, refresh} = require("electron-as-wallpaper");
 const path = require('path')
-
+let wallpaper;
 ipcMain.handle('ask-open-wallpaper', async (event, someArgument) => {
+    refresh()
+    const { URL } = someArgument;
     // 异步操作
-    // return JSON.stringify(CustomWindow.createWindow())
-    const wallpaper = new BrowserWindow({
+    wallpaper = new BrowserWindow({
 		enableLargerThanScreen: true,
-		autoHideMenuBar: false,
-		frame: true,
-		show: true,
+		autoHideMenuBar: true,
+        fullscreen: true,
+		frame: false,
+		show: false,
 		webPreferences: {
 			backgroundThrottling: false,
 		}
 	})
-    // await wallpaper.loadURL(__dirname, "./src/page/wallpaper.html")
     await wallpaper.loadURL(path.resolve(
         __dirname,
-        '../',
-        '../page/wallpaper.html'
+        `../../page/${URL}.html`
     ))
+    attach(wallpaper)
+    wallpaper.show();
     return 'ok'
+})
+
+ipcMain.on('ask-close-wallpaper', (evt, arg) => {
+    if (wallpaper) wallpaper.close()
+    refresh()
 })

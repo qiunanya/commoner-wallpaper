@@ -1,7 +1,7 @@
 "use strict"
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, ipcMain } = require('electron');
-const {attach, detach, refresh} = require("electron-as-wallpaper");
+const { app, BrowserWindow, ipcMain, Tray, Menu } = require('electron');
+const { attach, detach, refresh } = require("electron-as-wallpaper");
 const CustomWindow = require('../scripts/cust-window.js');
 const path = require('path')
 require('./event/handle.js')
@@ -13,10 +13,11 @@ try {
 } catch (_) { }
 
 function createWindow() {
-    process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
+    process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true
 
     // main windows
     mainWindow = CustomWindow.createWindow()
+    require('./tray.js').customTray(mainWindow)
     // remote module
     require('@electron/remote/main').initialize()
     require('@electron/remote/main').enable(mainWindow.webContents)
@@ -45,6 +46,17 @@ function createWindow() {
             )
         )
     }
+
+    mainWindow.on('close', function (event) {
+        // 阻止默认窗口关闭事件
+        event.preventDefault()
+        // 强制退出整个系统
+        // app.exit()
+        // 关闭当前窗口
+        // app.quit()
+        mainWindow.setSkipTaskbar(false)
+        mainWindow.hide()
+    })
 }
 
 app.whenReady().then(() => {
@@ -53,13 +65,11 @@ app.whenReady().then(() => {
     app.on('activate', function () {
         if (BrowserWindow.getAllWindows().length === 0) createWindow()
     })
-    // if (mainWindow) attach(mainWindow);
-    // not wallpaper effect
-    if (mainWindow) detach(mainWindow);
 })
 
 app.on('window-all-closed', function () {
-    if (process.platform !== 'darwin') app.quit()
+    // mainWindow = null;
+    // if (process.platform !== 'darwin') app.quit()
     refresh();
 })
 

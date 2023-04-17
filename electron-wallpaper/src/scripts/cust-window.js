@@ -24,6 +24,6 @@ class createWindow extends BaseInfo {
     }
 }
 
-exports.createWindow = function (width = 800, height= 600) {
+exports.createWindow = function (width = 800, height = 600) {
     return new BrowserWindow({ ...new createWindow(width, height)})
 }
