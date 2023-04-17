@@ -20,7 +20,10 @@ ipcMain.handle('ask-open-wallpaper', async (event, someArgument) => {
         __dirname,
         `../../page/${URL}.html`
     ))
+    // 沉于桌面图标之下图层
     attach(wallpaper)
+    // 浮于桌面图标之上图层
+    // detach(wallpaper)
     wallpaper.show();
     return 'ok'
 })
