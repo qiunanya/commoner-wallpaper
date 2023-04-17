@@ -31,6 +31,8 @@ function createWindow() {
             'renderer',
             'index.html'
         ))
+        // show menu
+        mainWindow.autoHideMenuBar = false
         // mainWindow.webContents.openDevTools()
         console.log('development', app.isPackaged);
     }
@@ -45,6 +47,9 @@ function createWindow() {
                 'index.html'
             )
         )
+
+        // hide menu
+        mainWindow.autoHideMenuBar = true
     }
 
     mainWindow.on('close', function (event) {

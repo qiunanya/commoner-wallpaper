@@ -1,5 +1,5 @@
 {
-	"name": "electron-wallpaper",
+	"name": "commoner-wallpaper",
 	"version": "1.1.0",
 	"description": "A good-looking desktop wallpaper that can be switched at will",
 	"main": "./src/main/main.js",

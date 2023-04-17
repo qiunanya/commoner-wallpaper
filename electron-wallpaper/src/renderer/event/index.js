@@ -15,3 +15,9 @@ const closeWallpaperBtn = document.getElementById('closeWallpaper')
 closeWallpaperBtn.onclick = function (event) {
     closeWallBtn.closeWallPaper(event)
 }
+
+// image
+const settingWallpaperImgBtn = document.getElementById('settingWallpaperImg')
+settingWallpaperImgBtn.onclick = function(event) {
+    openBtn.openChildWind(event)
+}

@@ -1,3 +1,56 @@
 /* styles.css */
 
 /* Add styles here to customize the appearance of your app */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #1b1c26; 
+    color: #999;
+    padding: .8em;
+}
+.title {
+    color: #eee;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400% 400%;
+    animation: gradientText 20s linear infinite;
+}
+@keyframes gradientText {
+    0% {
+        /*从左向右*/
+        background-position: 200% 100%;
+    }
+    50% {
+        background-position: -200% 100%;
+    }
+    100% {
+        background-position: 0% -200%;
+    }
+}
+.wallpaper-list-widget {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1.5em;
+}
+
+.wallpaper-list-widget li {
+    background: #eee;
+    margin: 0.4em;
+    border-radius: 0.3em;
+    box-shadow: 0 0 30px 0 rgb(0 255 255 / 33%);
+    height: 8em;
+    width: 8em;
+    cursor: pointer;
+}
+
+.wallpaper-list-widget li img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.2em;
+}
