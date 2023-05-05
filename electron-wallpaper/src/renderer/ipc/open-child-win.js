@@ -1,5 +1,6 @@
 const { ipcRenderer } = require("electron")
 exports.openChildWind = (event) => {
+    console.log(event, 2222);
     const { id } = event.target
     if (!id) return
     const someArgument = { msg: '请求打开墙纸窗口', URL: id }

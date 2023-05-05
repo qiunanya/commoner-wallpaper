@@ -41,7 +41,7 @@ body {
 
 .wallpaper-list-widget li {
     background: #eee;
-    margin: 0.4em;
+    margin: 0.4em 0.8em;
     border-radius: 0.3em;
     box-shadow: 0 0 30px 0 rgb(0 255 255 / 33%);
     height: 8em;

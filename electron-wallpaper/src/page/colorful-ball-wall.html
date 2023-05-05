@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多彩小球反弹动画</title>
+    <style>
+        * , body{
+            margin:0px;
+            padding:0px;
+            box-sizing:border-box; 
+            max-height:100vh;
+            max-width:100vw; 
+        }
+
+        canvas{
+            background:#0a0a0a;
+            vertical-align:top;  
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas')
+        canvas.height = window.innerHeight
+        canvas.width = window.innerWidth
+
+        let ctx = canvas.getContext('2d')
+        ctx.beginPath()
+        ctx.arc(100, 100, 50, 0, Math.PI * 2, true)
+        ctx.fillStyle = "white"
+        ctx.fill()
+
+        // 构造函数
+        function Circle(x, y, radius, color, dx, dy) {
+            this.x = x;
+            this.y = y;
+            this.radius = radius;
+            this.color = color;
+            this.dx = dx;
+            this.dy = dy;
+            // 绘制小球
+            this.draw = function () {
+                ctx.beginPath()
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true)
+                ctx.fillStyle = this.color;
+                ctx.fill()
+            }
+
+            // 更新
+            this.update = function () {
+                // 边界判断矢量返回
+                if(this.x + this.radius > window.innerWidth || this.x - this.radius <0){
+                    this.dx = -this.dx; 
+                }
+                
+                if(this.y+this.radius >= window.innerHeight || this.y-this.radius < 0){
+                    this.dy = -(this.dy); 
+                }
+                // 动画配置
+                this.x += this.dx;
+                this.y += this.dy;
+                // 绘制
+                this.draw(); 
+            }
+        }
+
+        var colors = ['#2c3e50','#e74c3c','#3498db','#bdc3c7','#2ecc71', '#10ac84', '#00cc99'];
+        var circleArray = [];
+        for(let i = 0; i <= 20; i++) {
+            var r = 10+(Math.random()*17); 
+            var x = Math.random()*(window.innerWidth- 2*r) +r; 
+            var y = Math.random()*(window.innerHeight- 2*r) +r; 
+            var dy = (Math.random()-0.5)*8 +2;
+            var dx = (Math.random()-0.5)*8 +2;
+            var color = colors[Math.floor(Math.random()*colors.length)]
+            circleArray.push(new Circle(x,y,r,color,dx,dy));
+        }
+
+        function animate(){ 
+            ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
+            circleArray.forEach(e => {
+                e.update();
+            });
+            requestAnimationFrame(animate); 
+        }
+
+        animate();
+
+        window.addEventListener('resize',function(){
+            canvas.height = window.innerHeight;
+            canvas.width = window.innerWidth; 
+        })
+    </script>
+</body>
+</html>

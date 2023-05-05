@@ -27,6 +27,7 @@ exports.customTray = function (mainWindow) {
             click: () => {
                 // 主窗口设置为null防止内存溢出
                 customWindows = null 
+                // 关闭壁纸窗口
                 app.exit()
             }        
         }
