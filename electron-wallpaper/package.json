@@ -19,7 +19,8 @@
 	"license": "CC0-1.0",
 	"dependencies": {
 		"@electron/remote": "^2.0.9",
-		"electron-as-wallpaper": "^0.0.2-dev"
+		"electron-as-wallpaper": "^0.0.2-dev",
+		"pexels": "^1.4.0"
 	},
 	"devDependencies": {
 		"electron": "^24.1.1",

@@ -3,7 +3,7 @@ const {attach, detach, refresh} = require("electron-as-wallpaper");
 const path = require('path')
 let wallpaper;
 ipcMain.handle('ask-open-wallpaper', async (event, someArgument) => {
-    const { URL } = someArgument;
+    const { URL, type } = someArgument;
     // 异步操作，如果不存在窗口继续创建，否则禁止创建窗口，防止多次创建窗口
     if (!wallpaper) {
         wallpaper = new BrowserWindow({
@@ -20,8 +20,9 @@ ipcMain.handle('ask-open-wallpaper', async (event, someArgument) => {
     
     await wallpaper.loadURL(path.resolve(
         __dirname,
-        `../../page/${URL}.html`
+        type === 'code' ? `../../page/${URL}.html` : `../../page/image-wall.html`
     ))
+    
     // 沉于桌面图标之下图层
     attach(wallpaper)
     // 浮于桌面图标之上图层

@@ -23,6 +23,10 @@
     </style>
 </head>
 <body>
-    <img src="https://images.pexels.com/photos/1643409/pexels-photo-1643409.jpeg?auto=compress&cs=tinysrgb&w=1600">
+    <img id="Images">
+    <script>
+        document.getElementsById('Images').src = localStorage.getItem('currentImg')
+        console.log(localStorage.getItem('currentImg'), 444);
+    </script>
 </body>
 </html>

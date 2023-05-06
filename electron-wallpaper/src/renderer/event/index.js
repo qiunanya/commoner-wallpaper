@@ -19,12 +19,11 @@ const closeWallBtn = require("../ipc/close-wallpaper")
 // image
 const settingWallpaperImgBtn = document.getElementById('settingWallpaperImg')
 settingWallpaperImgBtn.onclick = function(event) {
-    openBtn.openChildWind(event)
+    openBtn.openChildWind(event, 'code')
 }
 
 // colorful ball wallpaper
 const colorfulBallWallBtn = document.getElementById('colorfulBallWall')
 colorfulBallWallBtn.onclick = function(event) {
-    console.log(event, 3333);
-    openBtn.openChildWind(event)
+    openBtn.openChildWind(event, 'code')
 }

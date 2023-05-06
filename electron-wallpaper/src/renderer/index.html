@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+    <!-- <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'"> -->
     <link href="../asset/styles.css" rel="stylesheet">
     <link rel="icon" href="../../public/logo.ico" type="image/x-icon">
     <title>布衣前端壁纸</title>
@@ -20,18 +20,26 @@
         Electron：<span id="electron-version"></span> -->
         <!-- <button id="closeWallpaper">清除壁纸</button> -->
     </aside>
-    <ul class="wallpaper-list-widget">
-        <li title="设置为壁纸" id="settingWallpaperImg">
-            <img id="time-wall" src="../asset/image/time-wall.gif">
-        </li>
-        <li title="设置为壁纸" id="colorfulBallWall">
-            <img id="colorful-ball-wall" src="../asset/image/colorful-ball-wall.gif">
-        </li>
-        <!-- <li>11111</li>
-        <li>11111</li>
-        <li>11111</li>
-        <li>11111</li> -->
-    </ul>
+    <!-- https://blog.csdn.net/qq_53767416/article/details/126688527 -->
+    <div class="page-widget">
+        <ul class="left-tab-list">
+            <li id="canvas" class="active">代码图片</li>
+            <li id="Nature">自然风景</li>
+        </ul>
+        <ul class="right-content">
+            <li class="page-item" style="display: block;">
+                <ul class="wallpaper-list-widget">
+                    <li title="设置为壁纸" id="settingWallpaperImg">
+                        <img id="time-wall" src="../asset/image/time-wall.gif">
+                    </li>
+                    <li title="设置为壁纸" id="colorfulBallWall">
+                        <img id="colorful-ball-wall" src="../asset/image/colorful-ball-wall.gif">
+                    </li>
+                </ul>
+            </li>
+            <li class="page-item" id="pexels-list-view"></li>
+        </ul>
+    </div>
     <!-- <button id="openChildbtn">打开子窗口</button>
     <button id="settingWallpaper">设置壁纸</button>
     <button id="closeWallpaper">关闭壁纸</button> -->

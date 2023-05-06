@@ -6,6 +6,8 @@
  * to expose Node.js functionality from the main process.
  */
 require('./event')
+require('./event/http')
+require('./event/tabs')
 const { dialog } = require("@electron/remote");
 
 // dialog.showSaveDialog({
