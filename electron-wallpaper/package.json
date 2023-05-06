@@ -61,7 +61,7 @@
 			"createDesktopShortcut": true,
 			"createStartMenuShortcut": true,
 			"displayLanguageSelector": true,
-			"shortcutName": "commoner"
+			"shortcutName": "布衣壁纸"
 		},
 		"directories": {
 			"output": "dist_electron"

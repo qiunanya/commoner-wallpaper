@@ -1,5 +1,8 @@
-const { Tray, Menu, app } = require('electron')
-const path = require("path")
+"use strict"
+const { Tray, Menu, app } = require('electron');
+const { attach, detach, refresh } = require("electron-as-wallpaper");
+const path = require("path");
+
 let customWindows;
 exports.customTray = function (mainWindow) {
     customWindows = mainWindow;
@@ -25,6 +28,7 @@ exports.customTray = function (mainWindow) {
             label: '退出', 
             type: 'checkbox',
             click: () => {
+                refresh()
                 // 主窗口设置为null防止内存溢出
                 customWindows = null 
                 // 关闭壁纸窗口
