@@ -3,9 +3,11 @@
 
 ### 产品图片
 
-![image-20230508175149975](D:\demo\commoner-wallpaper\static\image\image-20230508175149975.png)
+![](static/image/image-20230508175149975.png)
 
-![image-20230508175235020](D:\demo\commoner-wallpaper\static\image\image-20230508175235020.png)
+
+
+![](static/image/image-20230508175235020.png)
 
 ### 当前实现功能🎡
 
