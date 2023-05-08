@@ -12,7 +12,7 @@ client.photos.search({ query, per_page: 30 }).then(res => {
         const { photos } = res;
         const data = photos.map(mp => {
             return {
-                imgUrl: mp.src.large2x,
+                imgUrl: mp.src.large,
                 tiny: mp.src.tiny,
                 small: mp.src.small
             }
@@ -29,8 +29,8 @@ client.photos.search({ query, per_page: 30 }).then(res => {
             LI.append(img)
             UL.append(LI)
             LI.onclick = function(event) {
-                localStorage.setItem('currentImg', data[i].imgUrl)
-                openBtn.openChildWind(event, 'img')
+                // localStorage.setItem('currentImg', data[i].imgUrl)
+                openBtn.openChildWind(event, 'img', data[i].imgUrl)
             }
         }
         parent.append(UL)
