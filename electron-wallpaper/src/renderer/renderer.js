@@ -8,6 +8,7 @@
 require('./event')
 require('./event/http')
 require('./event/tabs')
+require('./event/date')
 const { dialog } = require("@electron/remote");
 
 // dialog.showSaveDialog({

@@ -51,7 +51,7 @@ function createWindow() {
         // hide menu
         mainWindow.autoHideMenuBar = true
     }
-
+    mainWindow.setHasShadow(true)
     mainWindow.on('close', function (event) {
         // 阻止默认窗口关闭事件
         event.preventDefault()

@@ -3,28 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <!-- <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'"> -->
     <link href="../asset/styles.css" rel="stylesheet">
     <link rel="icon" href="../../public/logo.ico" type="image/x-icon">
     <title>布衣前端壁纸</title>
 </head>
 
 <body>
-    <h2 class="title">欢迎使用布衣前端壁纸~~~~</h2>
-    <aside>
-        <!-- <span>environment</span>
-        Node.js：<span id="node-version"></span>
-        Chromium：<span id="chrome-version"></span>
-        Electron：<span id="electron-version"></span> -->
-        <!-- <button id="closeWallpaper">清除壁纸</button> -->
+    <aside class="header">
+        <h2 class="cell title">布衣前端壁纸</h2>
+        <button class="cell btn" id="closeWallpaper">清除壁纸</button>
+        <p class="cell date-area"></p>
     </aside>
     <!-- https://blog.csdn.net/qq_53767416/article/details/126688527 -->
     <div class="page-widget">
         <ul class="left-tab-list">
-            <li id="canvas" class="active">代码图片</li>
-            <li id="Nature">自然风景</li>
+            <li id="canvas" class="tab active">代码图片</li>
+            <li id="Nature" class="tab">自然风景</li>
         </ul>
         <ul class="right-content">
             <li class="page-item" style="display: block;">
@@ -38,11 +32,16 @@
                 </ul>
             </li>
             <li class="page-item">
+                <section class="search-box">
+                    <input class="input" type="text" placeholder="Nature、Tigers、People">
+                    <button class="search-btn">GO</button>
+                </section>
                 <div id="pexels-content-view"></div>
                 <ul class="pagination">
                     <li id="previous_page" title="上一页"><a href="#">«</a></li>
                     <li id="page_num"></li>
                     <li id="next_page" title="下一页"><a href="#">»</a></li>
+                    <li class="total_num"></li>
                 </ul>
             </li>
         </ul>

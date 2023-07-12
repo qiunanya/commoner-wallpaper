@@ -11,10 +11,10 @@ const closeWallBtn = require("../ipc/close-wallpaper")
 // }
 
 // close wallpaper
-// const closeWallpaperBtn = document.getElementById('closeWallpaper')
-// closeWallpaperBtn.onclick = function (event) {
-//     closeWallBtn.closeWallPaper(event)
-// }
+const closeWallpaperBtn = document.getElementById('closeWallpaper')
+closeWallpaperBtn.onclick = function (event) {
+    closeWallBtn.closeWallPaper(event)
+}
 
 // image
 const settingWallpaperImgBtn = document.getElementById('settingWallpaperImg')

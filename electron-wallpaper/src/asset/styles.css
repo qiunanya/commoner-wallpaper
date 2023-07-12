@@ -11,7 +11,17 @@ body {
     color: #999;
     padding: .8em;
 }
-.title {
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+.header .cell {
+    margin: 0 20px;
+}
+.header .title {
     color: #eee;
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-clip: text;
@@ -19,6 +29,10 @@ body {
     -webkit-text-fill-color: transparent;
     background-size: 400% 400%;
     animation: gradientText 20s linear infinite;
+}
+.header > .btn {
+    padding: 4px;
+    cursor: pointer;
 }
 @keyframes gradientText {
     0% {
@@ -64,7 +78,7 @@ body {
     list-style-type: none;
     flex: 0 0 120px;
 }
-.page-widget > .left-tab-list li {
+.page-widget > .left-tab-list li[class^="tab"] {
     margin: 0.3em;
     padding: 0.3em;
     text-align: center;
@@ -84,6 +98,21 @@ body {
 
 .page-item {
     display: none;
+}
+
+.page-item section[class^="search"] {
+    padding: 8px 16px;
+}
+
+.page-item .search-box .input, .search-btn {
+    padding: 5px;
+}
+.page-item .search-box .search-btn {
+    cursor: pointer;
+}
+
+.page-item .search-box .search-btn:hover {
+    color: #23a6d5;
 }
 
 ul.pagination {
